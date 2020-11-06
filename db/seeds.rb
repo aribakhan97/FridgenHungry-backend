@@ -8,7 +8,12 @@
 
 Fridge.create(username:"Sean", password:"code")
 
-Ingredient.create(name: "Milk", category: "Dairy")
+Ingredient.create(
+  name: "Milk",
+  category: "Dairy",
+  image: './Images/Dairy/milk.svg'
+)
+
 Ingredient.create(name: "Cheese", category: "Dairy")
 Ingredient.create(name: "Eggs", category: "Dairy")
 Ingredient.create(name: "Yogurt", category: "Dairy")
@@ -19,6 +24,7 @@ Ingredient.create(name: "Peppers", category: "Vegetables")
 Ingredient.create(name: "Spinach", category: "Vegetables")
 Ingredient.create(name: "Onion", category: "Vegetables")
 Ingredient.create(name: "Lettuce", category: "Vegetables")
+Ingredient.create(name: "Garlic", category: "Vegetables")
 
 Ingredient.create(name: "Beef", category: "Protein")
 Ingredient.create(name: "Chicken", category: "Protein")
@@ -30,7 +36,6 @@ Ingredient.create(name: "Salt", category: "Spices")
 Ingredient.create(name: "Pepper", category: "Spices")
 Ingredient.create(name: "Chili Powder", category: "Spices")
 Ingredient.create(name: "Oregano", category: "Spices")
-Ingredient.create(name: "Garlic Powder", category: "Spices")
 
 Ingredient.create(name: "Apple", category: "Fruit")
 Ingredient.create(name: "Orange", category: "Fruit")
