@@ -2307,3 +2307,11 @@ Processing by IngredientsController#index as */*
 Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.7ms | Allocations: 5796)
 
 
+Started GET "/ingredients/" for ::1 at 2020-11-06 15:39:12 -0500
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 19ms (Views: 8.8ms | ActiveRecord: 4.4ms | Allocations: 10399)
+
+
