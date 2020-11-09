@@ -174,3 +174,6 @@ Ingredient.create(
   category: "Grains",
   image: '/Images/Grains/naan.svg'
 )
+
+
+# ----- Recipes ------
