@@ -5064,3 +5064,603 @@ Processing by FridgeIngredientsController#index as HTML
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1219)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (48.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Fridge_N_Hungry_Backend_development"[0m
+  [1m[35m (39.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Fridge_N_Hungry_Backend_test"[0m
+  [1m[35m (136.4ms)[0m  [1m[35mCREATE DATABASE "Fridge_N_Hungry_Backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (52.6ms)[0m  [1m[35mCREATE DATABASE "Fridge_N_Hungry_Backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6429548011150695585)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFridge (20201105162109)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "fridges" ("id" bigserial primary key, "username" character varying, "password" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105162109"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FridgeIngredients (20201105163138)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "fridge_ingredients" ("id" bigserial primary key, "fridge_id" integer, "ingredient_id" integer)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163138"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIngredients (20201105163316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" bigserial primary key, "name" character varying, "category" character varying, "image" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163316"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipeIngredients (20201105163339)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" bigserial primary key, "ingredient_id" integer, "recipe_id" integer)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163339"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipes (20201105163356)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "name" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163356"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-10 14:12:36.409151"], ["updated_at", "2020-11-10 14:12:36.409151"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6429548011150695585)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Milk"], ["category", "Dairy"], ["image", "/Images/Dairy/milk.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cheese"], ["category", "Dairy"], ["image", "/Images/Dairy/cheese.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Eggs"], ["category", "Dairy"], ["image", "/Images/Dairy/eggs.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Yogurt"], ["category", "Dairy"], ["image", "/Images/Dairy/yogurt.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Butter"], ["category", "Dairy"], ["image", "/Images/Dairy/butter.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Broccoli"], ["category", "Vegetables"], ["image", "/Images/Vegetables/broccoli.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Peppers"], ["category", "Vegetables"], ["image", "/Images/Vegetables/peppers.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spinach"], ["category", "Vegetables"], ["image", "/Images/Vegetables/spinach.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Onion"], ["category", "Vegetables"], ["image", "/Images/Vegetables/onion.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lettuce"], ["category", "Vegetables"], ["image", "/Images/Vegetables/lettuce.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Garlic"], ["category", "Vegetables"], ["image", "/Images/Vegetables/garlic.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Beef"], ["category", "Protein"], ["image", "/Images/Protein/beef.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chicken"], ["category", "Protein"], ["image", "/Images/Protein/chicken.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fish"], ["category", "Protein"], ["image", "/Images/Protein/fish.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tofu"], ["category", "Protein"], ["image", "/Images/Protein/tofu.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lentils"], ["category", "Protein"], ["image", "/Images/Protein/lentils.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salt"], ["category", "Spices"], ["image", "/Images/Spices/salt.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pepper"], ["category", "Spices"], ["image", "/Images/Spices/pepper.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chili Powder"], ["category", "Spices"], ["image", "/Images/Spices/chili.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Oregano"], ["category", "Spices"], ["image", "/Images/Spices/oregano.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Curry Powder"], ["category", "Spices"], ["image", "/Images/Spices/spice.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apple"], ["category", "Fruit"], ["image", "/Images/Fruit/apple.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Orange"], ["category", "Fruit"], ["image", "/Images/Fruit/orange.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Banana"], ["category", "Fruit"], ["image", "/Images/Fruit/bananas.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Berries"], ["category", "Fruit"], ["image", "/Images/Fruit/berries.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Avocado"], ["category", "Fruit"], ["image", "/Images/Fruit/avocado.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bread"], ["category", "Grains"], ["image", "/Images/Grains/bread.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rice"], ["category", "Grains"], ["image", "/Images/Grains/rice.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.1ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pasta"], ["category", "Grains"], ["image", "/Images/Grains/pasta.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.1ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tortilla"], ["category", "Grains"], ["image", "/Images/Grains/tortilla.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pita"], ["category", "Grains"], ["image", "/Images/Grains/pita.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Naan"], ["category", "Grains"], ["image", "/Images/Grains/naan.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Milk,Cheese,Eggs"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Butter,Broccoli,Peppers"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Chicken,Fish,Tofu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 2], ["recipe_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 5], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 6], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 7], ["recipe_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 13], ["recipe_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 14], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 15], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Milk"], ["category", "Dairy"], ["image", "/Images/Dairy/milk.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cheese"], ["category", "Dairy"], ["image", "/Images/Dairy/cheese.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Eggs"], ["category", "Dairy"], ["image", "/Images/Dairy/eggs.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Yogurt"], ["category", "Dairy"], ["image", "/Images/Dairy/yogurt.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Butter"], ["category", "Dairy"], ["image", "/Images/Dairy/butter.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Broccoli"], ["category", "Vegetables"], ["image", "/Images/Vegetables/broccoli.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Peppers"], ["category", "Vegetables"], ["image", "/Images/Vegetables/peppers.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spinach"], ["category", "Vegetables"], ["image", "/Images/Vegetables/spinach.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Onion"], ["category", "Vegetables"], ["image", "/Images/Vegetables/onion.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lettuce"], ["category", "Vegetables"], ["image", "/Images/Vegetables/lettuce.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Garlic"], ["category", "Vegetables"], ["image", "/Images/Vegetables/garlic.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Beef"], ["category", "Protein"], ["image", "/Images/Protein/beef.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chicken"], ["category", "Protein"], ["image", "/Images/Protein/chicken.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fish"], ["category", "Protein"], ["image", "/Images/Protein/fish.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tofu"], ["category", "Protein"], ["image", "/Images/Protein/tofu.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lentils"], ["category", "Protein"], ["image", "/Images/Protein/lentils.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salt"], ["category", "Spices"], ["image", "/Images/Spices/salt.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pepper"], ["category", "Spices"], ["image", "/Images/Spices/pepper.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chili Powder"], ["category", "Spices"], ["image", "/Images/Spices/chili.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Oregano"], ["category", "Spices"], ["image", "/Images/Spices/oregano.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Curry Powder"], ["category", "Spices"], ["image", "/Images/Spices/spice.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apple"], ["category", "Fruit"], ["image", "/Images/Fruit/apple.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Orange"], ["category", "Fruit"], ["image", "/Images/Fruit/orange.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Banana"], ["category", "Fruit"], ["image", "/Images/Fruit/bananas.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Berries"], ["category", "Fruit"], ["image", "/Images/Fruit/berries.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Avocado"], ["category", "Fruit"], ["image", "/Images/Fruit/avocado.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bread"], ["category", "Grains"], ["image", "/Images/Grains/bread.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rice"], ["category", "Grains"], ["image", "/Images/Grains/rice.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pasta"], ["category", "Grains"], ["image", "/Images/Grains/pasta.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tortilla"], ["category", "Grains"], ["image", "/Images/Grains/tortilla.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pita"], ["category", "Grains"], ["image", "/Images/Grains/pita.svg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Naan"], ["category", "Grains"], ["image", "/Images/Grains/naan.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Milk,Cheese,Eggs"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Butter,Broccoli,Peppers"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Chicken,Fish,Tofu"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 2], ["recipe_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 5], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 6], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 7], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 13], ["recipe_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 14], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 15], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.4ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (24.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Fridge_N_Hungry_Backend_development"[0m
+  [1m[35m (23.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Fridge_N_Hungry_Backend_test"[0m
+  [1m[35m (70.9ms)[0m  [1m[35mCREATE DATABASE "Fridge_N_Hungry_Backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (74.5ms)[0m  [1m[35mCREATE DATABASE "Fridge_N_Hungry_Backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6429548011150695585)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFridge (20201105162109)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "fridges" ("id" bigserial primary key, "username" character varying, "password" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105162109"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FridgeIngredients (20201105163138)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "fridge_ingredients" ("id" bigserial primary key, "fridge_id" integer, "ingredient_id" integer)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163138"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIngredients (20201105163316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" bigserial primary key, "name" character varying, "category" character varying, "image" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163316"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipeIngredients (20201105163339)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" bigserial primary key, "ingredient_id" integer, "recipe_id" integer)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163339"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipes (20201105163356)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "name" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163356"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-10 14:15:40.508365"], ["updated_at", "2020-11-10 14:15:40.508365"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6429548011150695585)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Create (0.6ms)[0m  [1m[32mINSERT INTO "fridges" ("username", "password") VALUES ($1, $2) RETURNING "id"[0m  [["username", "Sean"], ["password", "123"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Milk"], ["category", "Dairy"], ["image", "/Images/Dairy/milk.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cheese"], ["category", "Dairy"], ["image", "/Images/Dairy/cheese.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Eggs"], ["category", "Dairy"], ["image", "/Images/Dairy/eggs.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Yogurt"], ["category", "Dairy"], ["image", "/Images/Dairy/yogurt.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Butter"], ["category", "Dairy"], ["image", "/Images/Dairy/butter.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Broccoli"], ["category", "Vegetables"], ["image", "/Images/Vegetables/broccoli.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Peppers"], ["category", "Vegetables"], ["image", "/Images/Vegetables/peppers.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spinach"], ["category", "Vegetables"], ["image", "/Images/Vegetables/spinach.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Onion"], ["category", "Vegetables"], ["image", "/Images/Vegetables/onion.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lettuce"], ["category", "Vegetables"], ["image", "/Images/Vegetables/lettuce.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Garlic"], ["category", "Vegetables"], ["image", "/Images/Vegetables/garlic.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Beef"], ["category", "Protein"], ["image", "/Images/Protein/beef.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chicken"], ["category", "Protein"], ["image", "/Images/Protein/chicken.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fish"], ["category", "Protein"], ["image", "/Images/Protein/fish.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tofu"], ["category", "Protein"], ["image", "/Images/Protein/tofu.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lentils"], ["category", "Protein"], ["image", "/Images/Protein/lentils.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salt"], ["category", "Spices"], ["image", "/Images/Spices/salt.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pepper"], ["category", "Spices"], ["image", "/Images/Spices/pepper.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chili Powder"], ["category", "Spices"], ["image", "/Images/Spices/chili.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Oregano"], ["category", "Spices"], ["image", "/Images/Spices/oregano.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Curry Powder"], ["category", "Spices"], ["image", "/Images/Spices/spice.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apple"], ["category", "Fruit"], ["image", "/Images/Fruit/apple.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Orange"], ["category", "Fruit"], ["image", "/Images/Fruit/orange.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Banana"], ["category", "Fruit"], ["image", "/Images/Fruit/bananas.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Berries"], ["category", "Fruit"], ["image", "/Images/Fruit/berries.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Avocado"], ["category", "Fruit"], ["image", "/Images/Fruit/avocado.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bread"], ["category", "Grains"], ["image", "/Images/Grains/bread.svg"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rice"], ["category", "Grains"], ["image", "/Images/Grains/rice.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pasta"], ["category", "Grains"], ["image", "/Images/Grains/pasta.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tortilla"], ["category", "Grains"], ["image", "/Images/Grains/tortilla.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pita"], ["category", "Grains"], ["image", "/Images/Grains/pita.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Naan"], ["category", "Grains"], ["image", "/Images/Grains/naan.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Milk,Cheese,Eggs"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Butter,Broccoli,Peppers"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Chicken,Fish,Tofu"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.5ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 2], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 5], ["recipe_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 6], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 7], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 13], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 14], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 15], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.5ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m

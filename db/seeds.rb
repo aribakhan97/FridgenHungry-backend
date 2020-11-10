@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Fridge.create(username: 'Sean', password: '123')
 
 Ingredient.create(
   name: "Milk",
@@ -174,7 +175,7 @@ Ingredient.create(
   image: '/Images/Grains/naan.svg'
 )
 
-# ----- RecipesIngrediens ------
+# ----- Recipes ------
 
 Recipe.create(
   name: "Milk,Cheese,Eggs"
@@ -189,7 +190,7 @@ Recipe.create(
 )
 
 
-# ----- RecipesIngrediens ------
+# ----- RecipeIngredients ------
 
 RecipeIngredient.create(
   recipe_id: 1,
@@ -234,4 +235,36 @@ RecipeIngredient.create(
 RecipeIngredient.create(
   recipe_id: 3,
   ingredient_id: 15
+)
+
+# ----FridgeIngredients----
+
+FridgeIngredient.create(
+  fridge_id: 1,
+  ingredient_id: 1
+)
+
+FridgeIngredient.create(
+  fridge_id: 1,
+  ingredient_id: 2
+)
+
+FridgeIngredient.create(
+  fridge_id: 1,
+  ingredient_id: 3
+)
+
+FridgeIngredient.create(
+  fridge_id: 1,
+  ingredient_id: 4
+)
+
+FridgeIngredient.create(
+  fridge_id: 1,
+  ingredient_id: 5
+)
+
+FridgeIngredient.create(
+  fridge_id: 1,
+  ingredient_id: 6
 )
