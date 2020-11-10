@@ -7294,3 +7294,156 @@ Processing by FridgeIngredientsController#create as JSON
 Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3326)
 
 
+Started GET "/ingredients/" for ::1 at 2020-11-10 11:33:29 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+No serializer found for resource: #<Ingredient id: 1, name: "Milk", category: "Dairy", image: "/Images/Dairy/milk.svg">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Ingredient::ActiveRecord_Relation (1.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 3959)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:35:42 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>4, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>4}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 3355)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 11:39:11 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+No serializer found for resource: #<Ingredient id: 1, name: "Milk", category: "Dairy", image: "/Images/Dairy/milk.svg">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Ingredient::ActiveRecord_Relation (3.78ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 3922)
+
+
+Started GET "/recipes/" for ::1 at 2020-11-10 11:39:24 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:4:in `index'
+No serializer found for resource: #<Recipe id: 1, name: "Milk,Cheese,Eggs">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Recipe::ActiveRecord_Relation (0.16ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1188)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 11:39:25 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+No serializer found for resource: #<Ingredient id: 1, name: "Milk", category: "Dairy", image: "/Images/Dairy/milk.svg">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Ingredient::ActiveRecord_Relation (3.22ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 3921)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:41:51 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>3, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>3}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.49ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:41:53 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (15.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.08ms)
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 16.0ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:41:55 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>12, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>12}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:42:15 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>7, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>7}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.08ms)
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:42:16 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.08ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:42:16 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>12, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>12}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.08ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:42:17 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>15, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>15}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.08ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3327)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 11:43:09 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.07ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3326)
+
+
