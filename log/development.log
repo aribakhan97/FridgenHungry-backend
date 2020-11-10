@@ -6561,3 +6561,736 @@ Migrating to CreateRecipes (20201105163356)
 =======
   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT $1[0m  [["LIMIT", 11]]
 >>>>>>> daa4b9babe5887a2290a0f9041d9645f5c05599f
+Started POST "/fridges" for ::1 at 2020-11-10 10:01:01 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FridgesController#create as JSON
+  Parameters: {"username"=>"asdads", "password"=>"[FILTERED]", "fridge"=>{"username"=>"asdads", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridges_controller.rb:8:in `create'
+  [1m[36mFridge Create (0.7ms)[0m  [1m[32mINSERT INTO "fridges" ("username", "password") VALUES ($1, $2) RETURNING "id"[0m  [["username", "asdads"], ["password", "asdasda"]]
+  ↳ app/controllers/fridges_controller.rb:8:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridges_controller.rb:8:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 7.8ms | Allocations: 4709)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:01:01 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 5.2ms | Allocations: 8603)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:01:10 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 3671)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:12 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>1, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.3ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 6.1ms | Allocations: 8434)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:12 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>2, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 2]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 4700)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:13 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>3, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>3}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 3]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 4700)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:13 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>4, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>4}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.3ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 4]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:13 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>5, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 5]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 4681)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:14 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>6, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>6}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 6]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:14 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>7, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>7}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.3ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 7]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:15 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 8]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:16 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>9, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>9}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 9]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:16 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>10, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>10}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 10]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 10.8ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:17 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>11, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>11}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 11]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 4679)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:01:17 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>2, "ingredient_id"=>12, "fridge_ingredient"=>{"fridge_id"=>2, "ingredient_id"=>12}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mFridgeIngredient Create (10.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 2], ["ingredient_id", 12]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 11.0ms | Allocations: 4679)
+
+
+Started GET "/recipes" for ::1 at 2020-11-10 10:02:58 -0500
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:4:in `index'
+Completed 200 OK in 11ms (Views: 3.4ms | ActiveRecord: 4.9ms | Allocations: 3440)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:04:21 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 3653)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:05:35 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.4ms | Allocations: 3656)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:05:38 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 3653)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:05:47 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 3653)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:09:33 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 3653)
+
+
+Started GET "/recipes/" for ::1 at 2020-11-10 10:11:01 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 983)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:11:07 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 3653)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:11:09 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 3653)
+
+
+Started GET "/recipes/" for ::1 at 2020-11-10 10:11:49 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 983)
+
+
+Started GET "/recipes/" for ::1 at 2020-11-10 10:12:11 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 983)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:16:29 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 3653)
+
+
+Started GET "/fridges" for ::1 at 2020-11-10 10:23:48 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FridgesController#index as HTML
+  [1m[36mFridge Load (0.6ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges"[0m
+  ↳ app/controllers/fridges_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 25ms (Views: 14.1ms | ActiveRecord: 7.5ms | Allocations: 7609)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (50.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Fridge_N_Hungry_Backend_development"[0m
+  [1m[35m (44.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Fridge_N_Hungry_Backend_test"[0m
+  [1m[35m (136.6ms)[0m  [1m[35mCREATE DATABASE "Fridge_N_Hungry_Backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (123.1ms)[0m  [1m[35mCREATE DATABASE "Fridge_N_Hungry_Backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6429548011150695585)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFridge (20201105162109)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "fridges" ("id" bigserial primary key, "username" character varying, "password" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105162109"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FridgeIngredients (20201105163138)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "fridge_ingredients" ("id" bigserial primary key, "fridge_id" integer, "ingredient_id" integer)[0m
+  [1m[36mprimary::SchemaMigration Create (16.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163138"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIngredients (20201105163316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" bigserial primary key, "name" character varying, "category" character varying, "image" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163316"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipeIngredients (20201105163339)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" bigserial primary key, "ingredient_id" integer, "recipe_id" integer)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163339"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipes (20201105163356)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "name" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201105163356"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-10 15:41:28.878570"], ["updated_at", "2020-11-10 15:41:28.878570"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6429548011150695585)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Create (0.9ms)[0m  [1m[32mINSERT INTO "fridges" ("username", "password") VALUES ($1, $2) RETURNING "id"[0m  [["username", "Sean"], ["password", "123"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Milk"], ["category", "Dairy"], ["image", "/Images/Dairy/milk.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cheese"], ["category", "Dairy"], ["image", "/Images/Dairy/cheese.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Eggs"], ["category", "Dairy"], ["image", "/Images/Dairy/eggs.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Yogurt"], ["category", "Dairy"], ["image", "/Images/Dairy/yogurt.svg"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Butter"], ["category", "Dairy"], ["image", "/Images/Dairy/butter.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Broccoli"], ["category", "Vegetables"], ["image", "/Images/Vegetables/broccoli.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (16.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Peppers"], ["category", "Vegetables"], ["image", "/Images/Vegetables/peppers.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spinach"], ["category", "Vegetables"], ["image", "/Images/Vegetables/spinach.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Onion"], ["category", "Vegetables"], ["image", "/Images/Vegetables/onion.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lettuce"], ["category", "Vegetables"], ["image", "/Images/Vegetables/lettuce.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Garlic"], ["category", "Vegetables"], ["image", "/Images/Vegetables/garlic.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Beef"], ["category", "Protein"], ["image", "/Images/Protein/beef.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chicken"], ["category", "Protein"], ["image", "/Images/Protein/chicken.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (16.1ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fish"], ["category", "Protein"], ["image", "/Images/Protein/fish.svg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tofu"], ["category", "Protein"], ["image", "/Images/Protein/tofu.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lentils"], ["category", "Protein"], ["image", "/Images/Protein/lentils.svg"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salt"], ["category", "Spices"], ["image", "/Images/Spices/salt.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pepper"], ["category", "Spices"], ["image", "/Images/Spices/pepper.svg"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chili Powder"], ["category", "Spices"], ["image", "/Images/Spices/chili.svg"]]
+  [1m[35m (16.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Oregano"], ["category", "Spices"], ["image", "/Images/Spices/oregano.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Curry Powder"], ["category", "Spices"], ["image", "/Images/Spices/spice.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apple"], ["category", "Fruit"], ["image", "/Images/Fruit/apple.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (16.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Orange"], ["category", "Fruit"], ["image", "/Images/Fruit/orange.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Banana"], ["category", "Fruit"], ["image", "/Images/Fruit/bananas.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Berries"], ["category", "Fruit"], ["image", "/Images/Fruit/berries.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Avocado"], ["category", "Fruit"], ["image", "/Images/Fruit/avocado.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bread"], ["category", "Grains"], ["image", "/Images/Grains/bread.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rice"], ["category", "Grains"], ["image", "/Images/Grains/rice.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pasta"], ["category", "Grains"], ["image", "/Images/Grains/pasta.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tortilla"], ["category", "Grains"], ["image", "/Images/Grains/tortilla.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pita"], ["category", "Grains"], ["image", "/Images/Grains/pita.svg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "category", "image") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Naan"], ["category", "Grains"], ["image", "/Images/Grains/naan.svg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Milk,Cheese,Eggs"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Butter,Broccoli,Peppers"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Chicken,Fish,Tofu"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (16.4ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 2], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 5], ["recipe_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 6], ["recipe_id", 2]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 7], ["recipe_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 13], ["recipe_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 14], ["recipe_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id") VALUES ($1, $2) RETURNING "id"[0m  [["ingredient_id", 15], ["recipe_id", 3]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (14.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.3ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFridgeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "fridge_ingredients" ("fridge_id", "ingredient_id") VALUES ($1, $2) RETURNING "id"[0m  [["fridge_id", 1], ["ingredient_id", 6]]
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/fridges" for ::1 at 2020-11-10 10:42:31 -0500
+Processing by FridgesController#index as HTML
+  [1m[36mFridge Load (0.8ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges"[0m
+  ↳ app/controllers/fridges_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "fridge_ingredients" ON "ingredients"."id" = "fridge_ingredients"."ingredient_id" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+[active_model_serializers]   ↳ app/models/Fridge.rb:8:in `map'
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+[active_model_serializers]   ↳ app/models/Fridge.rb:11:in `recipes'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/models/Fridge.rb:12:in `block in recipes'
+[active_model_serializers]   [1m[36mIngredient Load (17.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+[active_model_serializers]   ↳ app/models/Fridge.rb:12:in `block in recipes'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+[active_model_serializers]   ↳ app/models/Fridge.rb:12:in `block in recipes'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (71.15ms)
+Completed 200 OK in 79ms (Views: 32.8ms | ActiveRecord: 44.2ms | Allocations: 22574)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:43:41 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.12ms)
+Completed 200 OK in 26ms (Views: 2.5ms | ActiveRecord: 13.7ms | Allocations: 7494)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:43:42 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>7, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>7}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 3347)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:43:43 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.1ms)
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 3347)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:43:43 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 3328)
+
+
+Started GET "/recipes/" for ::1 at 2020-11-10 10:43:47 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:4:in `index'
+No serializer found for resource: #<Recipe id: 1, name: "Milk,Cheese,Eggs">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Recipe::ActiveRecord_Relation (0.54ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 1296)
+
+
+Started GET "/ingredients/" for ::1 at 2020-11-10 10:51:08 -0500
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:4:in `index'
+No serializer found for resource: #<Ingredient id: 1, name: "Milk", category: "Dairy", image: "/Images/Dairy/milk.svg">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Ingredient::ActiveRecord_Relation (2.38ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.7ms | Allocations: 4065)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:51:38 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>1, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>1}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.1ms)
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 3355)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:51:39 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>2, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>2}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:51:40 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>3, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>3}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.61ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:51:44 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>7, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>7}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 3331)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:56:09 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>1, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.09ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:56:10 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>2, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (16.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.12ms)
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 16.5ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:56:11 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>7, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>7}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.11ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 3326)
+
+
+Started POST "/fridge_ingredients" for ::1 at 2020-11-10 10:56:11 -0500
+Processing by FridgeIngredientsController#create as JSON
+  Parameters: {"fridge_id"=>nil, "ingredient_id"=>8, "fridge_ingredient"=>{"fridge_id"=>nil, "ingredient_id"=>8}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/fridge_ingredients_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with FridgeIngredient (0.07ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3326)
+
+
