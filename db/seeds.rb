@@ -176,8 +176,6 @@ Ingredient.create(
 )
 
 # ----- Recipes ------
-
-
 Recipe.create(
   name: "Mac 'N Cheese",
   instructions: "Boil 3 cups of water in a saucepan. Add a dash of salt to the water.,
@@ -189,8 +187,6 @@ Recipe.create(
                 Mix in and simmer at a low heat until all ingredients are dispersed.,
                 Place in a bowl and enjoy!"
 )
-
-
 
 Recipe.create(
   name:"Taco Tuesday (or any day of the week)",
