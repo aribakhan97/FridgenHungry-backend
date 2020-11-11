@@ -177,20 +177,37 @@ Ingredient.create(
 
 # ----- Recipes ------
 
+# Recipe.create(
+#   name: "Milk,Cheese,Eggs"
+# )
+
+# Recipe.create(
+#   name: "Butter,Broccoli,Peppers"
+# )
+
+# Recipe.create(
+#   name: "Chicken,Fish,Tofu"
+# )
+
 Recipe.create(
-  name: "Milk,Cheese,Eggs"
+  name: "Pasta,Butter,Milk,Cheese,Salt"
 )
 
 Recipe.create(
-  name: "Butter,Broccoli,Peppers"
+  name:"Tortilla,Rice,Beef,Avocado,Cheese,Chili Powder,Salt"
 )
-
-Recipe.create(
-  name: "Chicken,Fish,Tofu"
-)
-
 
 # ----- RecipeIngredients ------
+# MAC N CHEEZE
+RecipeIngredient.create(
+  recipe_id: 1,
+  ingredient_id: 29
+)
+
+RecipeIngredient.create(
+  recipe_id: 1,
+  ingredient_id: 5
+)
 
 RecipeIngredient.create(
   recipe_id: 1,
@@ -204,67 +221,78 @@ RecipeIngredient.create(
 
 RecipeIngredient.create(
   recipe_id: 1,
-  ingredient_id: 3
+  ingredient_id: 17
+)
+
+#TACOS
+
+RecipeIngredient.create(
+  recipe_id: 2,
+  ingredient_id: 30
 )
 
 RecipeIngredient.create(
   recipe_id: 2,
-  ingredient_id: 5
+  ingredient_id: 28
 )
 
 RecipeIngredient.create(
   recipe_id: 2,
-  ingredient_id: 6
+  ingredient_id: 12
 )
 
 RecipeIngredient.create(
   recipe_id: 2,
-  ingredient_id: 7
+  ingredient_id: 30
 )
 
 RecipeIngredient.create(
-  recipe_id: 3,
-  ingredient_id: 13
+  recipe_id: 2,
+  ingredient_id: 26
 )
 
 RecipeIngredient.create(
-  recipe_id: 3,
-  ingredient_id: 14
+  recipe_id: 2,
+  ingredient_id: 2
 )
 
 RecipeIngredient.create(
-  recipe_id: 3,
-  ingredient_id: 15
+  recipe_id: 2,
+  ingredient_id: 19
 )
 
+RecipeIngredient.create(
+  recipe_id: 2,
+  ingredient_id: 17
+)
 # ----FridgeIngredients----
 
-FridgeIngredient.create(
-  fridge_id: 1,
-  ingredient_id: 1
-)
+# FridgeIngredient.create(
+#   fridge_id: 1,
+#   ingredient_id: 1
+# )
 
-FridgeIngredient.create(
-  fridge_id: 1,
-  ingredient_id: 2
-)
+# FridgeIngredient.create(
+#   fridge_id: 1,
+#   ingredient_id: 2
+# )
 
-FridgeIngredient.create(
-  fridge_id: 1,
-  ingredient_id: 3
-)
+# FridgeIngredient.create(
+#   fridge_id: 1,
+#   ingredient_id: 3
+# )
 
-FridgeIngredient.create(
-  fridge_id: 1,
-  ingredient_id: 4
-)
+# FridgeIngredient.create(
+#   fridge_id: 1,
+#   ingredient_id: 4
+# )
 
-FridgeIngredient.create(
-  fridge_id: 1,
-  ingredient_id: 5
-)
+# FridgeIngredient.create(
+#   fridge_id: 1,
+#   ingredient_id: 5
+# )
 
-FridgeIngredient.create(
-  fridge_id: 1,
-  ingredient_id: 6
-)
+# FridgeIngredient.create(
+#   fridge_id: 1,
+#   ingredient_id: 6
+# )
