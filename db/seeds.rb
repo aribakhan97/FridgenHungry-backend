@@ -177,24 +177,35 @@ Ingredient.create(
 
 # ----- Recipes ------
 
-# Recipe.create(
-#   name: "Milk,Cheese,Eggs"
-# )
-
-# Recipe.create(
-#   name: "Butter,Broccoli,Peppers"
-# )
-
-# Recipe.create(
-#   name: "Chicken,Fish,Tofu"
-# )
 
 Recipe.create(
-  name: "Pasta,Butter,Milk,Cheese,Salt"
+  name: "Mac 'N Cheese",
+  instructions: "Boil 3 cups of water in a saucepan. Add a dash of salt to the water.,
+                Once water is at a boil add 2 cups of pasta. Let pasta boil for about 9 minutes.,
+                Drain the pasta and place pasta back on stove on a low heat.,
+                Add 4 tablespoons of butter.,
+                Shred in 1 1/2 cup sharp chedder cheese and 1/4 cup of parmesan cheese.,
+                Add 1/4 cup of milk.,
+                Mix in and simmer at a low heat until all ingredients are dispersed.,
+                Place in a bowl and enjoy!"
 )
 
+
+
 Recipe.create(
-  name:"Tortilla,Rice,Beef,Avocado,Cheese,Chili Powder,Salt"
+  name:"Taco Tuesday (or any day of the week)",
+  instructions: "Boil 2 cups of rice in a saucepan.,
+                Cook rice for about 12 minutes and then drain rice and put aside.,
+                In another saucepan, add a dash of oil.,
+                Once oil is hot, add in 1 pound of beef.,
+                Mix in salt and chili powder to desired seasoning into the beef.,
+                Let the beef cook at a medium heat for about 8 minutes.,
+                Warm up tortilla either on the stove on in a microwave.,
+                Set aside beef.
+                Place the warm tortilla on a plate, then add 2 scoops of rice, layer the beef on top of the rice.,
+                Cut up slices of a ripe avocado and place on top of the beef.,
+                Sprinkle any desired cheese on top. We recommended thick cut Mexican blend.,
+                Enjoy!"
 )
 
 # ----- RecipeIngredients ------
