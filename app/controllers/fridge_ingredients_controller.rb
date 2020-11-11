@@ -9,10 +9,21 @@ class FridgeIngredientsController < ApplicationController
         render json: fridge_ingredient
     end
 
+    def show
+      fridge_ingredient = FridgeIngredient.find(params[:id])
+      render json: fridge_ingredient
+    end
+
+    def destroy
+      fridge_ingredient = FridgeIngredient.find(params[:id])
+      fridge_ingredient.destroy
+      render json: fridge_ingredient
+    end
+
     private
 
     def fridge_ingredient_params
-        params.require(:fridge_ingredient).permit!
+        params.require(:fridge_ingredient).permit(:fridge_id, :ingredient_id)
     end
 
 end
