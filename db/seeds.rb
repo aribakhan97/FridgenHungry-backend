@@ -103,7 +103,7 @@ Ingredient.create(
   image: '/Images/Spices/pepper.svg'
 )
 Ingredient.create(
-  name: "Chili Powder",
+  name: "Chili",
   category: "Spices",
   image: '/Images/Spices/chili.svg'
 )
@@ -113,7 +113,7 @@ Ingredient.create(
   image: '/Images/Spices/oregano.svg'
 )
 Ingredient.create(
-  name: "Curry Powder",
+  name: "Curry",
   category: "Spices",
   image: '/Images/Spices/spice.svg'
 )
@@ -182,7 +182,7 @@ Recipe.create(
   image: '/Images/Recipes/cheese.svg',
   instructions: "Place a skillet on medium heat.,
                 Take 2 slices of bread and spread an even layer on one side of each bread.,
-                Add in slices whichever cheese you prefer!, 
+                Add in slices whichever cheese you prefer!,
                 We like american cheese and place in between the two slices of bread.,
                 Stack the sandwich place it on the stovetop butter side down on the stovetop to prevent sticking to the pan.,
                 Allow 3-5 minutes for cheese to properly melt and bread to toast.,
@@ -255,7 +255,7 @@ Recipe.create(
 #eggs, onions, broccoli, peppers, salt, pepper,cheese
 # AVO TOAST
 # pita, peppers, spinach, avocado, salt, pepper, onion,
-# grilled cheese bread, cheese, butter 
+# grilled cheese bread, cheese, butter
 
 #GRILLED CHEESE
 RecipeIngredient.create(
@@ -275,7 +275,7 @@ RecipeIngredient.create(
 
 # MAC N CHEEZE
 RecipeIngredient.create(
-  recipe_id: 2, 
+  recipe_id: 2,
   ingredient_id: 29
 )
 
@@ -301,7 +301,7 @@ RecipeIngredient.create(
 
 
 
-#AVO TOAST 
+#AVO TOAST
 RecipeIngredient.create(
   recipe_id: 3,
   ingredient_id: 26
