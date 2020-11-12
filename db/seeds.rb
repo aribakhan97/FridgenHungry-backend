@@ -178,6 +178,7 @@ Ingredient.create(
 # ----- Recipes ------
 Recipe.create(
   name: "Mac 'N Cheese",
+  image: '/Images/Recipes/mac.svg',
   instructions: "Boil 3 cups of water in a saucepan. Add a dash of salt to the water.,
                 Once water is at a boil add 2 cups of pasta. Let pasta boil for about 9 minutes.,
                 Drain the pasta and place pasta back on stove on a low heat.,
@@ -190,6 +191,7 @@ Recipe.create(
 
 Recipe.create(
   name:"Taco Tuesday (or any day of the week)",
+  image: '/Images/Recipes/taco.svg',
   instructions: "Boil 2 cups of rice in a saucepan.,
                 Cook rice for about 12 minutes and then drain rice and put aside.,
                 In another saucepan, add a dash of oil.,
@@ -204,7 +206,147 @@ Recipe.create(
                 Enjoy!"
 )
 
+Recipe.create(
+  name: "Avocado Toast",
+  image: '/Images/Recipes/avocado.svg',
+  instructions: "Take 2 ripe avocados, cut, and place in a mixing bowl.,
+                Finely chop up 1/2 an onion and put aside.,
+                If desired chop up a half a pepper and 1 cup spinach.,
+                Mix together avocado, onion, peppers, and spinach.,
+                Mash with a fork until the proper consistency.,
+                Add salt and pepper to flavor.,
+                Warm up a pita on the stovetop or in a microwave.,
+                Spread a nice layer of avocado spread onto pita.,
+                Enjoy!"
+)
+
+Recipe.create(
+  name: "Garden Omelette",
+  image: '/Images/Recipes/omelette.svg',
+  instructions: "Crack 3 whole eggs into a mixing bowl.,
+                In a non-stick skillet add a small amount of oil and bring to heat.,
+                Finely chop up 1/2 an onion and place into mixing bowl with eggs.,
+                Cut broccoli and peppers into small peices and place into mixing bowl.,
+                With a fork lightly whisk the mixture.,
+                Add a dash of salt and pepper to taste.,
+                Pour eggs into skillet and mix until cooked to desire.,
+                Sprinkle mozzarella cheese on top until it is melted and enjoy!"
+)
+
+Recipe.create(
+  name: "Grilled Cheese",
+  image: '/Images/Recipes/cheese.svg',
+  instructions: "Place a skillet on medium heat.,
+                Take 2 slices of bread and spread an even layer on one side of each bread.,
+                Add in slices whichever cheese you prefer!, 
+                We like american cheese and place in between the two slices of bread.,
+                Stack the sandwich place it on the stovetop butter side down on the stovetop to prevent sticking to the pan.,
+                Allow 3-5 minutes for cheese to properly melt and bread to toast.,
+                Occasionally flip the sandwich.,
+                Once cheese is fully melted, plate the sandwich and enjoy!"
+)
+
 # ----- RecipeIngredients ------
+# garden omelette
+#eggs, onions, broccoli, peppers, salt, pepper,cheese
+# AVO TOAST
+# pita, peppers, spinach, avocado, salt, pepper, onion,
+# grilled cheese bread, cheese, butter 
+
+RecipeIngredient.create(
+  recipe_id: 5,
+  ingredient_id: 27
+)
+
+RecipeIngredient.create(
+  recipe_id: 5,
+  ingredient_id: 2
+)
+
+RecipeIngredient.create(
+  recipe_id: 5,
+  ingredient_id: 5
+)
+
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 3
+)
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 9
+)
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 6
+)
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 7
+)
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 17
+)
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 18
+)
+
+RecipeIngredient.create(
+  recipe_id: 4,
+  ingredient_id: 2
+)
+
+
+
+
+
+
+
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 26
+)
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 31
+)
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 9
+)
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 8
+)
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 7
+)
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 17
+)
+
+RecipeIngredient.create(
+  recipe_id: 3,
+  ingredient_id: 18
+)
+
+
 # MAC N CHEEZE
 RecipeIngredient.create(
   recipe_id: 1,
