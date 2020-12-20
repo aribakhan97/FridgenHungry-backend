@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: Fridge_N_Hungry_Backend_production
   username: Fridge_N_Hungry_Backend
   password: <%= ENV['FRIDGE_N_HUNGRY_BACKEND_DATABASE_PASSWORD'] %>
